@@ -27,10 +27,10 @@ _exit:
 
 _outerLoop:
   call _printNewLine
-  cmp r8, r9                                 ; checks if r8 = r9 
-  jz _exit                                   ; jump to exit if the result is 0 (ie. they are equal) 
+  cmp r8, r9                                  ; checks if r8 = r9 
+  jz _exit                                    ; jump to exit if the result is 0 (ie. they are equal) 
   add r9, 1
-  mov r10, 0                                 ; r10 stores inner loop variable 
+  mov r10, 0                                  ; r10 stores inner loop variable 
   jmp _innerLoop
 
 _innerLoop: 
@@ -65,11 +65,11 @@ _printStar:
   ret
 
 _getLines: 
-  mov rax, 0                                 ; sys_read
-  mov rdi, 0                                 ; stdin 
-  mov rsi, lines                             ; buffer space to read word 
-  mov rdx, 1                                 ; number of bytes to read
-  syscall                                    ; call system to read word from stdin 
+  mov rax, 0                                  ; sys_read
+  mov rdi, 0                                  ; stdin 
+  mov rsi, lines                              ; buffer space to read word 
+  mov rdx, 1                                  ; number of bytes to read
+  syscall                                     ; call system to read word from stdin 
   mov r12, [rsi]
-  sub r12, 48                                ; convert ascii string to int 
+  sub r12, 48                                 ; convert ascii string to int 
   ret                  
